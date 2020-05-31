@@ -110,7 +110,7 @@ class TestState extends State<Test> {
     if(result != 0) {
       print(" items to csv ...");
       //_showSnackBar(context, "Budgets stored to csv Successfully") ;
-      _showAlertDialog("Télécharger les éléments" , "Éléments stockés dans /stockage/Android/data/com.example.budgets") ;
+      _showAlertDialog("Télécharger les éléments" , "Les Éléments de ce budget sont stockés dans /stockage/Android/data/com.example.budgets") ;
     }
   }
 

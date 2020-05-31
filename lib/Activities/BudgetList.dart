@@ -118,7 +118,7 @@ class BudgetListState extends State<BudgetList> {
             subtitle: Text(this.budgetList[position].date , style: TextStyle(fontStyle: FontStyle.italic, fontSize: 13),),
             trailing: GestureDetector(
               child:
-              Text("DA" + this.budgetList[position].initial.toString() , textAlign: TextAlign.right , style:  TextStyle(color:  Colors.blueGrey[500] , fontSize: 20 , fontWeight: FontWeight.bold),)
+              Text("DA " + this.budgetList[position].initial.toString() , textAlign: TextAlign.right , style:  TextStyle(color:  Colors.blueGrey[500] , fontSize: 20 , fontWeight: FontWeight.bold),)
 
             ),
             onLongPress: () {
@@ -180,7 +180,7 @@ class BudgetListState extends State<BudgetList> {
     if(result != 0) {
       print("Budgets to csv ...");
       //_showSnackBar(context, "Budgets stored to csv Successfully") ;
-      _showAlertDialog("Télécharger Budgets" , "Budgets stockés dans /stockage/Android/data/com.example.budgets") ;
+      _showAlertDialog("Télécharger les Budgets" , "Les Budgets sont stockés dans /stockage/Android/data/com.example.budgets") ;
     }
 
   }
@@ -318,7 +318,7 @@ class BudgetListState extends State<BudgetList> {
                                 child: Text(
                                     'Supprimer',
                                   style: TextStyle(color: Colors.blueGrey[500]),
-                                  textScaleFactor: 1.7,
+                                  textScaleFactor: 1.1,
                                 ),
                                 onPressed: () {
                                   setState(() {
@@ -343,7 +343,7 @@ class BudgetListState extends State<BudgetList> {
                                 ),
                                 child: Text(
                                   'Enregistrer',
-                                  textScaleFactor: 1.7,
+                                  textScaleFactor: 1.1,
                                   style: TextStyle(color: Colors.white),
                                 ),
                                 onPressed: () {
@@ -407,10 +407,10 @@ class BudgetListState extends State<BudgetList> {
 
     if (result != 0) {
       // Success
-      _showAlertDialog('Statu', 'Budget enregistré');
+      _showAlertDialog('Statut', 'Budget enregistré');
     } else {
       // Failure
-      _showAlertDialog('Statu', "Problème d'enregistrement de budget");
+      _showAlertDialog('Statut', "Problème d'enregistrement de budget");
     }
   }
 
@@ -422,16 +422,16 @@ class BudgetListState extends State<BudgetList> {
     // Casev 1: If user is trying to delete the NEW NOTE i.e. he has come to
     // the detail page by pressing the FAB of NoteList page.
     if (budget.id == null) {
-      _showAlertDialog('Statu',  "Aucun budget n'a été supprimé");
+      _showAlertDialog('Statut',  "Aucun budget n'a été supprimé");
       return;
     }
 
     // Case 2: User is trying to delete the old note that already has a valid ID.
     int result = await databaseHelper.deleteBudget(budget.id);
     if (result != 0) {
-      _showAlertDialog('Statu', 'Budget supprimé');
+      _showAlertDialog('Statut', 'Budget supprimé');
     } else {
-      _showAlertDialog('Statu', "Une erreur s'est produite lors de la suppression de budget");
+      _showAlertDialog('Statut', "Une erreur s'est produite lors de la suppression de budget");
     }
   }
 

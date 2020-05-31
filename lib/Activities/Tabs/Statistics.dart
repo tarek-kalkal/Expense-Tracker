@@ -168,7 +168,7 @@ static const background = const Color(0xffF7F7F7);
                           ),
                         ),
 
-                        Text("DA" + "$initial" + "La valeur initiale" , style:  TextStyle(
+                        Text("DA " + "$initial"  , style:  TextStyle(
                             color: Colors.black38,
                             fontSize: 18 , fontWeight: FontWeight.w500
                         ),)
@@ -194,7 +194,7 @@ static const background = const Color(0xffF7F7F7);
                           ),
                         ),
 
-                          Text("DA" + "$spend" + "Utilisé" , style:  TextStyle(
+                          Text("DA " + "$spend" + "  Utilisé" , style:  TextStyle(
                             color: Colors.black38,
                             fontSize: 18 , fontWeight: FontWeight.w500
                         ),)

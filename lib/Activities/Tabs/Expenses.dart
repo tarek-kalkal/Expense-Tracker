@@ -130,7 +130,7 @@ class ExpensesState extends State<Expenses> {
               style: TextStyle(fontStyle: FontStyle.italic, fontSize: 13),
             ),
             trailing: Text(
-              "-" + this.itemList[position].value.toString() + " \$",
+              "-" + this.itemList[position].value.toString() + " DA",
               style: TextStyle(
                   color: Colors.red[500],
                   fontFamily: 'Open Sans',
@@ -271,7 +271,7 @@ class ExpensesState extends State<Expenses> {
                                 child: Text(
                                   'Supprimer',
                                   style: TextStyle(color: Colors.blueGrey[500]),
-                                  textScaleFactor: 1.7,
+                                  textScaleFactor: 1.1,
                                 ),
                                 onPressed: () {
                                   setState(() {
@@ -296,7 +296,7 @@ class ExpensesState extends State<Expenses> {
                                ),
                             child: Text(
                               'Enregistrer',
-                              textScaleFactor: 1.7,
+                              textScaleFactor: 1.1,
                               style: TextStyle(color: Colors.white),
                             ),
                             onPressed: () {
@@ -367,10 +367,10 @@ class ExpensesState extends State<Expenses> {
 
     if (result != 0) {
       // Success
-      _showAlertDialog('Statu', 'Élément enregistré');
+      _showAlertDialog('Statut', 'Élément enregistré');
     } else {
       // Failure
-      _showAlertDialog('Statu', "Problème d'enregistrement de l'élément");
+      _showAlertDialog('Statut', "Problème d'enregistrement de l'élément");
     }
   }
 
@@ -380,7 +380,7 @@ class ExpensesState extends State<Expenses> {
     // Casev 1: If user is trying to delete the NEW NOTE i.e. he has come to
     // the detail page by pressing the FAB of NoteList page.
     if (item.id == null) {
-      _showAlertDialog('Statu', "Aucun élément n'a été supprimé");
+      _showAlertDialog('Statut', "Aucun élément n'a été supprimé");
       return;
     }
 
@@ -389,9 +389,9 @@ class ExpensesState extends State<Expenses> {
     budget.rest = budget.rest + item.value;
     await databaseHelper.updateBudget(budget);
     if (result != 0) {
-      _showAlertDialog('Statu', 'Élément supprimé');
+      _showAlertDialog('Statut', 'Élément supprimé');
     } else {
-      _showAlertDialog('Statu', "Une erreur s'est produite lors de la suppression de l'élément");
+      _showAlertDialog('Statut', "Une erreur s'est produite lors de la suppression de l'élément");
     }
   }
 }

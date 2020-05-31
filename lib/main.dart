@@ -5,7 +5,7 @@ import 'Activities/BudgetList.dart';
 
 void main() {
   runApp(new MaterialApp(
-    title: 'Expense Tracker',
+    title: 'budgets',
     debugShowCheckedModeBanner: false,
     theme: ThemeData(primarySwatch: Colors.grey),
     home: new SplashScreen(),
