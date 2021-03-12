@@ -59,8 +59,8 @@ class DatabaseHelper {
     await db.execute('CREATE TABLE $budgetTable($colId INTEGER PRIMARY KEY AUTOINCREMENT, $colTitle TEXT, '
         '$colRest DOUBLE, $colInitial DOUBLE, $colDate TEXT)');
 
-    await db.execute('CREATE TABLE $itemTable($coltId INTEGER PRIMARY KEY AUTOINCREMENT, $coltTitle TEXT, '
-        '$coltValue DOUBLE, $coltBid INTEGER, $coltDate TEXT)');
+    await db.execute('CREATE TABLE $itemTable($coltId INTEGER PRIMARY KEY AUTOINCREMENT , $coltBid INTEGER, $coltTitle TEXT, '
+        '$coltValue DOUBLE,  $coltDate TEXT)');
 
   }
 
@@ -116,7 +116,13 @@ class DatabaseHelper {
 
   Future<int> deleteItem(int id) async {
     var db = await this.database;
-    int result = await db.rawDelete('DELETE FROM $itemTable WHERE $coltId = $id');
+    int result = await db.rawDelete('DELETE FROM $itemTable WHERE $colId = $id');
+    return result;
+  }
+
+  Future<int> deleteLastItem() async {
+    var db = await this.database;
+    int result = await db.rawDelete('DELETE FROM $itemTable WHERE $coltId = last_insert_rowid()');
     return result;
   }
 

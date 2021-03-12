@@ -106,12 +106,50 @@ class TestState extends State<Test> {
   }
 
   void _saveItemsToCsv(BuildContext context) async {
-    int result = await databaseHelper.saveItemsToCsv(budget) ;
-    if(result != 0) {
-      print(" items to csv ...");
-      //_showSnackBar(context, "Budgets stored to csv Successfully") ;
-      _showAlertDialog("Télécharger les éléments" , "Les Éléments de ce budget sont stockés dans /stockage/Android/data/com.example.budgets") ;
+
+    double spent = budget.initial - budget.rest ;
+    String spentString = "la valeur dépensée = " + spent.toString() ;
+
+    Item item = new Item( "la valeur initiale + la valeur dépensée :" , spent.toString()  , budget.initial) ;
+    //Item item2 = new Item("_title", "_date" , 50);
+    item.bid = budget.id ;
+//    //item.id= 0 ;
+//    Item item ;
+//    item =new Item() ;
+//    item.title = "la valeur initial :" ;
+//    item.value = budget.initial ;
+//    item.bid = null ;
+//
+//    item.date = "la valeur dépensée = |" + spent.toString()  ;
+
+ //   int resultt = await databaseHelper.insertItem(Item(  "la valeur initial :" + spentString , budget.initial.toString() , 0    ));
+
+    int resultt = await databaseHelper.insertItem(item);
+    if (resultt != 0) {
+      // Success
+      int result = await databaseHelper.saveItemsToCsv(budget) ;
+      if(result != 0) {
+
+      int deletResult = await databaseHelper.deleteLastItem() ;
+      if(deletResult!= 0) {
+        print(" items to csv ...");
+
+        _showAlertDialog("Télécharger les éléments" , "Les Éléments de ce budget sont stockés dans /stockage/Android/data/com.example.budgets") ;
+      }
+
+      }
+
+    } else {
+      // Failure
+      _showAlertDialog('Statut', "Problème d'enregistrement de l'élément");
     }
+
+//    int result = await databaseHelper.saveItemsToCsv(budget) ;
+//    if(result != 0) {
+//      print(" items to csv ...");
+//      //_showSnackBar(context, "Budgets stored to csv Successfully") ;
+//      _showAlertDialog("Télécharger les éléments" , "Les Éléments de ce budget sont stockés dans /stockage/Android/data/com.example.budgets") ;
+//    }
   }
 
   void _showAlertDialog(String title, String message) {

@@ -290,7 +290,6 @@ class BudgetListState extends State<BudgetList> {
                     padding:
                     EdgeInsets.only(top: 15.0, left: 10.0, right: 10.0),
                     child: TextField(
-                      keyboardType: TextInputType.number,
                       controller: initialController,
                       onChanged: (value) {
                         updateInitial(budget , initialController.text);

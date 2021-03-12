@@ -243,7 +243,6 @@ class ExpensesState extends State<Expenses> {
                     padding:
                         EdgeInsets.only(top: 15.0, left: 10.0, right: 10.0),
                     child: TextField(
-                      keyboardType: TextInputType.number,
                       controller: valueController,
                       onChanged: (value) {
                         updateInitial(item, valueController.text);

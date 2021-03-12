@@ -14,11 +14,19 @@ class Item {
 
   String get title => _title;
 
+  set id(int value) {
+    _id = value;
+  }
+
   double get value => _value;
 
   String get date => _date;
 
   int get bid => _bid ;
+
+//  set id(int value) {
+//    _id = value;
+//  }
 
   set title(String newTitle) {
     if (newTitle.length <= 255) {

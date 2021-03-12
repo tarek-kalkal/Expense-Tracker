@@ -80,7 +80,7 @@ static const background = const Color(0xffF7F7F7);
                     ,
                     Expanded (
                     child:
-                    Text("DA" + "$initial" , textAlign: TextAlign.right , style:  TextStyle(color:  Colors.blue , fontSize: 24 , fontWeight: FontWeight.bold),)
+                    Text("DA " + "$initial" , textAlign: TextAlign.right , style:  TextStyle(color:  Colors.blue , fontSize: 24 , fontWeight: FontWeight.bold),)
                       )
                   ],
                 ) ) ,
@@ -95,7 +95,7 @@ static const background = const Color(0xffF7F7F7);
 
                     ,
                     Expanded (child:
-                    Text("DA" + "$rest" , textAlign : TextAlign.right, style:  TextStyle(color:  Colors.black , fontSize: 24 , fontWeight: FontWeight.bold),)
+                    Text("DA " + "$rest" , textAlign : TextAlign.right, style:  TextStyle(color:  Colors.black , fontSize: 24 , fontWeight: FontWeight.bold),)
                       )
                       ],
                 ) ,
